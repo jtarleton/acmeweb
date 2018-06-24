@@ -14,7 +14,7 @@ foreach(AcmeCustomer::getAll() as $row): ?>
 </div>
 <div style="float:left;width:50%;">
 <div class="well"><?php
-$rows = $pdo->query("SELECT * FROM acme_order ORDER BY order_id DESC LIMIT 15");
+$rows = $pdo->query("SELECT * FROM acme_order ORDER BY order_created DESC LIMIT 15");
 ?><table border="1" style="width:100%;"><thead><tr><th>All Orders</th></tr></thead><?php
 foreach($rows as $row): ?>
 <tr><td>

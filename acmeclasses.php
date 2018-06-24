@@ -98,7 +98,15 @@ class AcmeOrder extends BaseObj {
                 $this->$prop = NULL;
         }
         $this->load($id);
-        }
+	}
+
+	public function getOrderCustomer() {
+		$obj = new AcmeCustomer($this->order_customer_id);
+		return $obj;
+	}
+	public function getOrderCreated() {
+		return date(DateTime::RFC822, strtotime($this->order_created));
+	}
 }
 
 class AcmeOrderDiscount extends BaseObj {
