@@ -1,0 +1,107 @@
+{
+  "acme_person": [
+    "person_id",
+    "person_first_name",
+    "person_last_name",
+    "active",
+    "person_created",
+    "person_updated"
+  ],
+  "acme_city": [
+    "city_id",
+    "city_name",
+    "city_country_code",
+    "city_district",
+    "city_district_abbrev",
+    "city_population"
+  ],
+  "acme_order": [
+    "order_id",
+    "order_customer_id",
+    "order_ship_date",
+    "order_fulfillment_status",
+    "order_payment_status",
+    "order_product_total",
+    "order_discount",
+    "order_shipping_total",
+    "order_taxable_total",
+    "order_tax_total",
+    "order_grand_total",
+    "order_created",
+    "order_updated"
+  ],
+  "acme_order_discount": [
+    "order_discount_code_id",
+    "order_discount_code_literal",
+    "order_discount_percentage",
+    "order_discount_expiration_date"
+  ],
+  "acme_language": [
+    "cl_id",
+    "cl_country_code",
+    "cl_language_name",
+    "cl_is_official",
+    "cl_percentage"
+  ],
+  "acme_city_geo_coord": [
+    "cgc_id",
+    "cgc_city_id",
+    "cgc_lat",
+    "cgc_lon"
+  ],
+  "acme_country": [
+    "country_id",
+    "country_code",
+    "country_name",
+    "country_continent",
+    "country_region",
+    "country_surface_area",
+    "country_indep_year",
+    "country_population",
+    "country_life_expectancy",
+    "country_gnp",
+    "country_gnp_old",
+    "country_local_name",
+    "country_govt_form",
+    "country_head_of_state",
+    "country_capital",
+    "country_code2"
+  ],
+  "acme_line_item": [
+    "line_item_id",
+    "line_item_order_id",
+    "line_item_product_id",
+    "line_item_product_quantity",
+    "line_item_created",
+    "line_item_updated"
+  ],
+  "acme_customer": [
+    "customer_id",
+    "customer_first_name",
+    "customer_last_name",
+    "customer_created",
+    "customer_updated"
+  ],
+  "acme_zip_code": [
+    "zc_id",
+    "zc_city_id",
+    "zc_zip"
+  ],
+  "acme_address": [
+    "address_id",
+    "address_1",
+    "address_2",
+    "address_city_id",
+    "address_created",
+    "address_updated"
+  ],
+  "pa_id": [
+    "pa_person_id",
+    "pa_address_id",
+    "pa_address_type"
+  ],
+  "pr_id": [
+    "pr_person_id",
+    "pr_role_id"
+  ]
+}

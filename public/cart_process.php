@@ -42,6 +42,7 @@ elseif ($_GET['action'] === 'checkout') {
 
 
 	$customer_id = $_SESSION['logged_in_customer_id'];
+
 		$pdo->beginTransaction();
 		$pdo->exec("CALL make_new_order($customer_id);");
 		$pdo->commit();
@@ -54,6 +55,27 @@ elseif ($_GET['action'] === 'checkout') {
 		$last = $res->fetch(PDO::FETCH_ASSOC);
 		$_SESSION['order']['order_id'] = (int) $last['order_id'];
 
+
+		foreach($_SESSION['cart'] as $product_id => $item) {
+			$add_line_sql = sprintf('CALL add_blank_line_item_for_oid(%u,%u,%u)', (int) $_SESSION['order']['order_id'], 
+					(int) $product_id, 
+					(int) $item['qty']
+				); 
+			$res2 = $pdo->exec($add_line_sql); 
+		
+		}
+		$res3 = $pdo->exec( sprintf('CALL recalc_prices(%u)', 
+				(int) $_SESSION['order']['order_id']
+			)
+		);
+
+/*
+		SELECT LAST_INSERT_ID()+1 INTO @lastoid;
+
+		CALL recalc_prices(@foo);
+
+		 *
+		 * */
 	  $_SESSION['flash_msgs'][] = sprintf('Order %s has been submitted.', $_SESSION['order']['order_id']);
 	               header(sprintf('Location: %s',
 			       'http://acme.jamestarleton.com/orderdetail.php?order_id=' . $_SESSION[

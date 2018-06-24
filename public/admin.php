@@ -2,11 +2,11 @@
 <h2>Admin</h2>
 <div style="float:left;width:50%;">
 <div class="well"><?php  
-$rows = $pdo->query("SELECT * FROM acme_customer ORDER BY customer_id DESC LIMIT 15");
+
 ?><table border="1" style="width:100%;"><thead><tr><th>All Customers</th></tr></thead><?php
-foreach($rows as $row): ?>
+foreach(AcmeCustomer::getAll() as $row): ?>
 <tr><td>
-<?php echo sprintf('<a href="customer.php?customer_id=%s">%s</a>', $row['customer_id'], $row['customer_id']); 
+<?php echo sprintf('<a href="customer.php?customer_id=%s">%s</a>', $row->customer_id, $row->getFullName() );
 ?>
 </td></tr>
 <?php endforeach; ?></table>
